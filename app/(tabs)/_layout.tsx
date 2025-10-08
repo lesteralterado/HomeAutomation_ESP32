@@ -37,6 +37,20 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="schedules"
+        options={{
+          title: 'Schedules',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="consent"
+        options={{
+          title: 'Consent',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gamecontroller" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
