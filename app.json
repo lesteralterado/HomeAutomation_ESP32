@@ -8,6 +8,15 @@
     "scheme": "homeautomation",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "extra": {
+      "firebaseApiKey": "AIzaSyAYVPxNpPxKOS2G0H9bLQCi2V1mDfm95Zs",
+      "firebaseAuthDomain": "home-automation-esp-d7d8c.firebaseapp.com",
+      "firebaseDatabaseURL": "https://home-automation-esp-d7d8c-default-rtdb.asia-southeast1.firebasedatabase.app",
+      "firebaseProjectId": "home-automation-esp-d7d8c",
+      "firebaseStorageBucket": "home-automation-esp-d7d8c.firebasestorage.app",
+      "firebaseMessagingSenderId": "900577873605",
+      "firebaseAppId": "1:900577873605:web:0969e0a0d35b5fbdacaaac"
+    },
     "ios": {
       "supportsTablet": true
     },
@@ -19,7 +28,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.retsel.Home_Automation"
     },
     "web": {
       "output": "static",
@@ -27,6 +37,8 @@
     },
     "plugins": [
       "expo-router",
+      "expo-notifications",
+      "expo-dev-client",
       [
         "expo-splash-screen",
         {
@@ -38,11 +50,18 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c925470f-0382-4436-adb5-55448ea45e3e"
+      }
     }
   }
 }

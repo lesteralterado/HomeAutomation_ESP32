@@ -47,8 +47,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="consent"
         options={{
-          title: 'Consent',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gamecontroller" color={color} />,
+          title: 'Welcome',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="hand.wave" color={color} />,
         }}
       />
     </Tabs>

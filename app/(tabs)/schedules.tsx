@@ -4,7 +4,9 @@ import { useRouter } from 'expo-router';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 
 // Firebase config must match the one used in SmartHome
 const firebaseConfig = {
@@ -55,9 +57,12 @@ export default function SchedulesScreen() {
         ) : (
           schedules.map(s => (
             <View key={s.id} style={styles.item}>
-              <View>
-                <Text style={styles.itemTitle}>{s.time} — {s.relay}</Text>
-                <Text style={styles.itemSubtitle}>{s.action} • {s.createdAt ? new Date(s.createdAt).toLocaleString() : '—'}</Text>
+              <View style={styles.itemLeft}>
+                <IconSymbol size={24} name="clock" color="#6b7280" />
+                <View>
+                  <Text style={styles.itemTitle}>{s.time} — ALL Relays</Text>
+                  <Text style={styles.itemSubtitle}>{s.action} • {s.createdAt ? new Date(s.createdAt).toLocaleString() : '—'}</Text>
+                </View>
               </View>
               <TouchableOpacity style={styles.delete} onPress={() => router.push({ pathname: '/components/SmartHome', params: { scheduleId: s.id } }) }>
                 <Text style={{ color: 'white', fontWeight: '700' }}>Manage</Text>
@@ -75,6 +80,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 22, fontWeight: '800', padding: 16 },
   empty: { color: '#6b7280', padding: 16 },
   item: { backgroundColor: 'white', borderRadius: 10, padding: 12, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  itemLeft: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   itemTitle: { fontWeight: '800' },
   itemSubtitle: { color: '#6b7280' },
   delete: { backgroundColor: '#2563eb', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 8 }
